@@ -9,6 +9,11 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
+    "engines": {
+    "node": "22.19.0",
+    "npm": "8.5.5"
+  },
+
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
