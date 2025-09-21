@@ -1,0 +1,26 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form" novalidate>
+  <h2>Registrarse</h2>
+  @if (errorMessage) {
+  <div class="error" role="status" aria-live="polite">{{ errorMessage }}</div>
+  }
+
+  <label>
+    Nombre
+    <input type="text" formControlName="name" placeholder="Nombre completo" />
+  </label>
+
+  <label>
+    Correo electrónico
+    <input type="email" formControlName="email" placeholder="ejemplo@correo.com" />
+  </label>
+
+  <label>
+    Contraseña
+    <input type="password" formControlName="password" placeholder="Contraseña" />
+  </label>
+
+  <div class="actions">
+    <button type="submit">Crear cuenta</button>
+    <button type="button" class="register" (click)="onBack()">Volver</button>
+  </div>
+</form>

@@ -1,0 +1,38 @@
+<ng-container>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form" novalidate>
+    <h2>Iniciar sesión</h2>
+
+    <label>
+      Correo electrónico
+      <input type="email" formControlName="email" placeholder="ejemplo@correo.com" />
+    </label>
+    @if (form.get('email')?.touched && form.get('email')?.invalid) {
+    <div class="error">
+      @if (form.get('email')?.errors?.['required']) {
+      <span>El email es obligatorio.</span>
+      } @if (form.get('email')?.errors?.['email']) {
+      <span>Email inválido.</span>
+      }
+    </div>
+    }
+
+    <label>
+      Contraseña
+      <input type="password" formControlName="password" placeholder="Contraseña" />
+    </label>
+    @if (form.get('password')?.touched && form.get('password')?.invalid) {
+    <div class="error">
+      @if (form.get('password')?.errors?.['required']) {
+      <span>La contraseña es obligatoria.</span>
+      } @if (form.get('password')?.errors?.['minlength']) {
+      <span>Mínimo 6 caracteres.</span>
+      }
+    </div>
+    }
+
+    <div class="actions">
+      <button type="submit">Iniciar sesión</button>
+      <button type="button" class="register" (click)="onRegister()">Registrarse</button>
+    </div>
+  </form>
+</ng-container>
